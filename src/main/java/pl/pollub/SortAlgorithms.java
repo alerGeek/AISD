@@ -2,107 +2,108 @@ package pl.pollub;
 
 public class SortAlgorithms {
 
-    public static void selectSort(int[] tab, boolean isAscending) {
+    public static void selectSort(int[] array, boolean isAscending) {
         if (isAscending) {
-            selectSortAsc(tab);
+            selectSortAsc(array);
         } else {
-            selectSortDesc(tab);
+            selectSortDesc(array);
         }
     }
 
-    private static void selectSortAsc(int[] tab) {
-        for (int i = 0; i < tab.length - 1; i++) {
+    private static void selectSortAsc(int[] array) {
+        for (int i = 0; i < array.length - 1; i++) {
             int minIndex = i;
-            for (int j = i + 1; j < tab.length; j++) {
-                if (tab[j] < tab[minIndex]) {
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[j] < array[minIndex]) {
                     minIndex = j;
                 }
             }
             if (i != minIndex) {
-                swap(tab, i, minIndex);
+                swap(array, i, minIndex);
             }
         }
     }
 
-    private static void selectSortDesc(int[] tab) {
-        for (int i = 0; i < tab.length - 1; i++) {
+    private static void selectSortDesc(int[] array) {
+        for (int i = 0; i < array.length - 1; i++) {
             int minIndex = i;
-            for (int j = i + 1; j < tab.length; j++) {
-                if (tab[j] > tab[minIndex]) {
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[j] > array[minIndex]) {
                     minIndex = j;
                 }
             }
             if (i != minIndex) {
-                swap(tab, i, minIndex);
+                swap(array, i, minIndex);
             }
         }
     }
 
-    public static void bubbleSort(int[] tab, boolean isAscending) {
+    public static void bubbleSort(int[] array, boolean isAscending) {
         if (isAscending) {
-            bubbleSortAsc(tab);
+            bubbleSortAsc(array);
         } else {
-            bubbleSortDesc(tab);
+            bubbleSortDesc(array);
         }
     }
 
-    private static void bubbleSortAsc(int[] tab) {
-        for (int i = 0; i < tab.length; i++) {
-            for (int j = 0; j < tab.length - 1; j++) {
-                if (tab[j] > tab[j + 1]) {
-                    swap(tab, j, j + 1);
+    private static void bubbleSortAsc(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array.length - 1; j++) {
+                if (array[j] > array[j + 1]) {
+                    swap(array, j, j + 1);
                 }
             }
         }
     }
 
-    private static void bubbleSortDesc(int[] tab) {
-        for (int i = 0; i < tab.length; i++) {
-            for (int j = 0; j < tab.length - 1; j++) {
-                if (tab[j] < tab[j + 1]) {
-                    swap(tab, j, j + 1);
+    private static void bubbleSortDesc(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array.length - 1; j++) {
+                if (array[j] < array[j + 1]) {
+                    swap(array, j, j + 1);
                 }
             }
         }
     }
 
-    public static void injectionSort(int[] tab, boolean isAscending) {
+    public static void insertSort(int[] array, boolean isAscending) {
         if (isAscending) {
-            injectionSortAsc(tab);
+            insertSortAsc(array);
         } else {
-            injectionSortDesc(tab);
+            insertSortDesc(array);
         }
     }
 
-    private static void injectionSortAsc(int[] tab) {
-        for (int i = 1; i < tab.length; i++) {
-            int minSortingValue = tab[i];
+    private static void insertSortAsc(int[] array) {
+        for (int i = 1; i < array.length; i++) {
+            int minSortingValue = array[i];
 
             int j = i - 1;
-            while (j >= 0 && tab[j] > minSortingValue) {
-                swap(tab, j, j + 1);
+            while (j >= 0 && array[j] > minSortingValue) {
+                swap(array, j, j + 1);
                 j = j - 1;
             }
-            tab[j + 1] = minSortingValue;
+            array[j + 1] = minSortingValue;
         }
     }
 
-    private static void injectionSortDesc(int[] tab) {
-        for (int i = 1; i < tab.length; i++) {
-            int minSortingValue = tab[i];
+    private static void insertSortDesc(int[] array) {
+        for (int i = 1; i < array.length; i++) {
+            int minSortingValue = array[i];
 
             int j = i - 1;
-            while (j >= 0 && tab[j] < minSortingValue) {
-                swap(tab, j, j + 1);
+            while (j >= 0 && array[j] < minSortingValue) {
+                swap(array, j, j + 1);
                 j = j - 1;
             }
-            tab[j + 1] = minSortingValue;
+            array[j + 1] = minSortingValue;
         }
     }
 
-    private static void swap(int[] tab, int a, int b) {
-        int pom = tab[b];
-        tab[b] = tab[a];
-        tab[a] = pom;
+    
+    private static void swap(int[] array, int a, int b) {
+        int temp = array[b];
+        array[b] = array[a];
+        array[a] = temp;
     }
 }

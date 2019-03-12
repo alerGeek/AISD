@@ -11,15 +11,15 @@ class MyArray2DTest extends Specification {
         def maxRange = 100
 
         when:
-        def tab = MyArray2D.generateRandom(rows, columns, minRange, maxRange)
-        def copy = tab
+        def array = MyArray2D.generateRandom(rows, columns, minRange, maxRange)
+        def copy = array
 
         then:
         MyArray2D.print(copy, rows, columns)
         println()
-        MyArray2D.bubbleSort(tab,5,5,true,2)
+        MyArray2D.bubbleSort(array,5,5,true,2)
         println()
-        MyArray2D.print(tab,rows,columns)
+        MyArray2D.print(array,rows,columns)
     }
     def "should sort Array 2D DESC by column"() {
         given:
@@ -29,15 +29,15 @@ class MyArray2DTest extends Specification {
         def maxRange = 100
 
         when:
-        def tab = MyArray2D.generateRandom(rows, columns, minRange, maxRange)
-        def copy = tab
+        def array = MyArray2D.generateRandom(rows, columns, minRange, maxRange)
+        def copy = array
 
         then:
         MyArray2D.print(copy, rows, columns)
         println()
-        MyArray2D.bubbleSort(tab,5,5,false,2)
+        MyArray2D.bubbleSort(array,5,5,false,2)
         println()
-        MyArray2D.print(tab,rows,columns)
+        MyArray2D.print(array,rows,columns)
     }
 
 }

@@ -4,46 +4,46 @@ import java.util.Random;
 
 public class MyArray2D {
 
-    public static int[][] generateRandom(int r, int c, int minRange, int maxRange) {
+    public static int[][] generateRandom(int row, int column, int minRange, int maxRange) {
         Random random = new Random();
 
-        int[][] array = new int[r][c];
-        for (int i = 0; i < r; i++) {
-            for (int j = 0; j < c; j++) {
+        int[][] array = new int[row][column];
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < column; j++) {
                 array[i][j] = random.nextInt((maxRange - minRange) + 1) + minRange;
             }
         }
         return array;
     }
 
-    public static void bubbleSort(int tab[][], int row, int column, boolean sortAsc, int nrColumnToSort) {
+    public static void bubbleSort(int array[][], int row, int column, boolean sortAsc, int nrColumnToSort) {
         int n = column + 1;
         if (!sortAsc) {
-            bubbleSortDesc(tab, row, column, nrColumnToSort, n);
+            bubbleSortDesc(array, row, column, nrColumnToSort, n);
         } else {
-            bubbleSortAsc(tab, row, column, nrColumnToSort, n);
+            bubbleSortAsc(array, row, column, nrColumnToSort, n);
         }
     }
 
-    public static void print(int[][] tab, int r, int c) {
+    public static void print(int[][] array, int r, int c) {
         for (int i = 0; i < r; i++) {
             for (int j = 0; j < c; j++) {
-                System.out.print(tab[i][j] + "\t");
+                System.out.print(array[i][j] + "\t");
             }
             System.out.println();
         }
     }
 
-    private static void bubbleSortAsc(int[][] tab, int row, int column, int nrColumnToSort, int n) {
+    private static void bubbleSortAsc(int[][] array, int row, int column, int nrColumnToSort, int n) {
         while (n > 1) {
             for (int i = 0; i < row - 1; i++) {
                 for (int j = 0; j < column; j++) {
-                    if (tab[i][nrColumnToSort] > tab[i + 1][nrColumnToSort]) {
+                    if (array[i][nrColumnToSort] > array[i + 1][nrColumnToSort]) {
                         for (int k = 0; k <= nrColumnToSort; k++) {
-                            swap(tab, i, j);
+                            swap(array, i, j);
                         }
                         for (int k = nrColumnToSort + 1; k < column; k++) {
-                            swap(tab, i, k);
+                            swap(array, i, k);
                         }
                     }
                 }
@@ -52,14 +52,14 @@ public class MyArray2D {
         }
     }
 
-    private static void bubbleSortDesc(int[][] tab, int row, int column, int nrColumnToSort, int n) {
+    private static void bubbleSortDesc(int[][] array, int row, int column, int nrColumnToSort, int n) {
         while (n > 1) {
             for (int i = 0; i < row - 1; i++) {
                 for (int j = 0; j < column; j++) {
-                    if (tab[i][nrColumnToSort] < tab[i + 1][nrColumnToSort]) {
-                        swap(tab, i, j);
+                    if (array[i][nrColumnToSort] < array[i + 1][nrColumnToSort]) {
+                        swap(array, i, j);
                         for (int k = nrColumnToSort + 1; k < column; k++) {
-                            swap(tab, i, k);
+                            swap(array, i, k);
                         }
                     }
                 }
@@ -68,10 +68,10 @@ public class MyArray2D {
         }
     }
 
-    private static void swap(int[][] tab, int r, int c) {
-        int pom = tab[r][c];
-        tab[r][c] = tab[r + 1][c];
-        tab[r + 1][c] = pom;
+    private static void swap(int[][] array, int r, int c) {
+        int temp = array[r][c];
+        array[r][c] = array[r + 1][c];
+        array[r + 1][c] = temp;
     }
 }
 

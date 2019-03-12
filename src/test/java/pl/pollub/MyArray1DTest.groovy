@@ -2,9 +2,6 @@ package pl.pollub
 
 import spock.lang.Specification
 
-/**
- * Description:
- */
 class MyArray1DTest extends Specification {
 
     def "GenerateRandomArray should create int array with range"() {
@@ -13,14 +10,14 @@ class MyArray1DTest extends Specification {
         def length = 10
         def minRange = 1
         def maxRange = 100
-        def tab = MyArray1D.generateRandomArray(length,minRange,maxRange)
+        def array = MyArray1D.generateRandomArray(length,minRange,maxRange)
 
         when:
-        Arrays.sort(tab)
+        Arrays.sort(array)
 
         then:
-        tab.length == length
-        tab[0] >= minRange
-        tab[tab.length-1] < maxRange
+        array.length == length
+        array[0] >= minRange
+        array[array.length-1] < maxRange
     }
 }

@@ -4,97 +4,97 @@ import spock.lang.Specification
 
 class SortAlgorithmsTest extends Specification {
 
-    def tab
-    def copyTab
+    def array
+    def copy
 
     def setup() {
-        tab = MyArray1D.generateRandomArray(10, 1, 100)
-        println "G:\t" + tab
-        copyTab = tab
+        array = MyArray1D.generateRandomArray(10, 1, 100)
+        println "G:\t" + array
+        copy = array
     }
 
     def cleanup() {
-        println "S:\t" + tab
+        println "S:\t" + array
     }
 
     def "SelectSort should sort ascending"() {
         given:
-        copyTab = Arrays.asList(copyTab)
+        copy = Arrays.asList(copy)
                 .sort()
 
         when:
-        SortAlgorithms.selectSort(tab, true)
-        tab = Arrays.asList(tab)
+        SortAlgorithms.selectSort(array, true)
+        array = Arrays.asList(array)
 
         then:
-        copyTab.equals(tab)
+        copy.equals(array)
     }
 
     def "BubbleSort should sort ascending"() {
         given:
-        copyTab = Arrays.asList(copyTab)
+        copy = Arrays.asList(copy)
                 .sort()
 
         when:
-        SortAlgorithms.bubbleSort(tab, true)
-        tab = Arrays.asList(tab)
+        SortAlgorithms.bubbleSort(array, true)
+        array = Arrays.asList(array)
 
         then:
-        copyTab.equals(tab)
+        copy.equals(array)
     }
 
-    def "InjectionSort should sort ascending"() {
+    def "InsertSort should sort ascending"() {
         given:
-        copyTab = Arrays.asList(copyTab)
+        copy = Arrays.asList(copy)
                 .sort()
 
         when:
-        SortAlgorithms.injectionSort(tab, true)
-        tab = Arrays.asList(tab)
+        SortAlgorithms.insertSort(array, true)
+        array = Arrays.asList(array)
 
         then:
-        copyTab.equals(tab)
+        copy.equals(array)
     }
 
     def "BubbleSort should sort descending"() {
         given:
-        copyTab = Arrays.asList(copyTab)
+        copy = Arrays.asList(copy)
                 .sort()
                 .reverse()
 
         when:
-        SortAlgorithms.bubbleSort(tab, false)
-        tab = Arrays.asList(tab)
+        SortAlgorithms.bubbleSort(array, false)
+        array = Arrays.asList(array)
 
         then:
-        copyTab.equals(tab)
+        copy.equals(array)
     }
 
     def "InjectionSort should sort descending"() {
         given:
-        copyTab = Arrays.asList(copyTab)
+        copy = Arrays.asList(copy)
                 .sort()
                 .reverse()
 
         when:
-        SortAlgorithms.injectionSort(tab, false)
-        tab = Arrays.asList(tab)
+        SortAlgorithms.insertSort(array, false)
+        array = Arrays.asList(array)
 
         then:
-        copyTab.equals(tab)
+        copy.equals(array)
     }
 
     def "SelectSort should sort descending"() {
         given:
-        copyTab = Arrays.asList(copyTab)
+        copy = Arrays.asList(copy)
                 .sort()
                 .reverse()
 
         when:
-        SortAlgorithms.selectSort(tab, false)
-        tab = Arrays.asList(tab)
+        SortAlgorithms.selectSort(array, false)
+        array = Arrays.asList(array)
 
         then:
-        copyTab.equals(tab)
+        copy.equals(array)
     }
 }

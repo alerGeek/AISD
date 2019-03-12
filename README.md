@@ -8,6 +8,7 @@ Sort algorithms:
 - Bubble Sort
 - Select Sort
 - Insert Sort
+- Bubble Sort for 2D array (sorting by column)
 
 Search algorithms:
 - Linear

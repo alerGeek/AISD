@@ -97,4 +97,18 @@ class SortAlgorithmsTest extends Specification {
         then:
         copy.equals(array)
     }
+
+    def "Quicksort should sort"() {
+        given:
+        copy = Arrays.asList(copy)
+                .sort()
+
+        when:
+        SortAlgorithms.quickSort(array,0,9)
+        array = Arrays.asList(array)
+
+        then:
+        copy.equals(array)
+    }
+
 }
